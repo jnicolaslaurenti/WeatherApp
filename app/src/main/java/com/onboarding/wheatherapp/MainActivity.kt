@@ -15,8 +15,8 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(binding.root)
         binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
         presenter = WeatherAppPresenter(WeatherAppModel(), WeatherAppView(this, binding))
         presenter.getFiveDays()
 
