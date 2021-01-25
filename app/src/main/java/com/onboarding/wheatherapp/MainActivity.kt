@@ -1,11 +1,24 @@
 package com.onboarding.wheatherapp
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
+import com.onboarding.wheatherapp.databinding.ActivityMainBinding
+import com.onboarding.wheatherapp.mvp.WeatherAppContract
+import com.onboarding.wheatherapp.mvp.model.WeatherAppModel
+import com.onboarding.wheatherapp.mvp.presenter.WeatherAppPresenter
+import com.onboarding.wheatherapp.mvp.view.WeatherAppView
 
 class MainActivity : AppCompatActivity() {
+
+    private lateinit var presenter: WeatherAppContract.Presenter
+    private lateinit var binding: ActivityMainBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+        presenter = WeatherAppPresenter(WeatherAppModel(), WeatherAppView(this, binding))
+        presenter.getFiveDays()
+
     }
 }
