@@ -7,6 +7,7 @@ import com.onboarding.wheatherapp.mvp.WeatherAppContract
 import com.onboarding.wheatherapp.mvp.model.WeatherAppModel
 import com.onboarding.wheatherapp.mvp.presenter.WeatherAppPresenter
 import com.onboarding.wheatherapp.mvp.view.WeatherAppView
+import com.onboarding.wheatherapp.services.WeatherService
 
 class MainActivity : AppCompatActivity() {
 
@@ -17,7 +18,8 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        presenter = WeatherAppPresenter(WeatherAppModel(), WeatherAppView(this, binding))
+        presenter =
+            WeatherAppPresenter(WeatherAppModel(WeatherService()), WeatherAppView(this, binding))
         presenter.getFiveDays()
 
     }
