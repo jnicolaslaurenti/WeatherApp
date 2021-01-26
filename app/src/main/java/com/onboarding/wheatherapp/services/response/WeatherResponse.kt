@@ -1,5 +1,5 @@
 package com.onboarding.wheatherapp.services.response
 
-data class WeatherResponse (
+data class WeatherResponse(
     val list: ArrayList<DataResponse>
 )
