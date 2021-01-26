@@ -11,10 +11,10 @@ class WeatherAppPresenter(
 
 
     override fun getFiveDays() {
-        model.getData(CITY).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread())
-            .subscribe { data ->
-                view.showData(data)
-            }
+        model.getData(CITY)
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribe { data -> view.showData(data) }
     }
 
     companion object {

@@ -12,8 +12,7 @@ class WeatherService {
 
     fun getFiveDays(city: String): Observable<WeatherResponse> {
         return Observable.create { subscriber ->
-            val callResponse =
-                api.createService(WeatherApi::class.java).getWeather(city, APPID, UNITS)
+            val callResponse = api.createService(WeatherApi::class.java).getWeather(city, APPID, UNITS)
             val response = callResponse.execute()
             if (response.isSuccessful) {
                 response.body()?.let { subscriber.onNext(it) }

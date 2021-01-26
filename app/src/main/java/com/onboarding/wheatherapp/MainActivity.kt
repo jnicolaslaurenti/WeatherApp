@@ -18,8 +18,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        presenter =
-            WeatherAppPresenter(WeatherAppModel(WeatherService()), WeatherAppView(this, binding))
+        presenter = WeatherAppPresenter(WeatherAppModel(WeatherService()), WeatherAppView(this, binding))
         presenter.getFiveDays()
 
     }
