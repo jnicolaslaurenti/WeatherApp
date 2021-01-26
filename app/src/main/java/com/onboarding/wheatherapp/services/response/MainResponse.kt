@@ -1,7 +1,12 @@
 package com.onboarding.wheatherapp.services.response
 
+import com.google.gson.annotations.SerializedName
+
 data class MainResponse(
+    @SerializedName("temp")
     val temp: String,
-    val temp_min: String,
-    val temp_max: String
+    @SerializedName("temp_min")
+    val tempMin: String,
+    @SerializedName("temp_max")
+    val tempMax: String
 )

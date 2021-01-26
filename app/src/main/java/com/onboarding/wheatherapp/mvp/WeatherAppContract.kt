@@ -10,7 +10,7 @@ interface WeatherAppContract {
     }
 
     interface View {
-        fun showData()
+        fun showData(data: WeatherResponse)
     }
 
     interface Presenter {

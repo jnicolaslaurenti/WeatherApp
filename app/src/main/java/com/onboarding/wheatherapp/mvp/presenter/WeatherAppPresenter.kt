@@ -13,11 +13,11 @@ class WeatherAppPresenter(
     override fun getFiveDays() {
         model.getData(CITY).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread())
             .subscribe { data ->
-                val aux = data
+                view.showData(data)
             }
-        view.showData()
     }
-    companion object{
+
+    companion object {
         private const val CITY = "Tandil"
     }
 }

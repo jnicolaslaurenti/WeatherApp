@@ -16,7 +16,7 @@ class WeatherService {
                 api.createService(WeatherApi::class.java).getWeather(city, APPID, UNITS)
             val response = callResponse.execute()
             if (response.isSuccessful) {
-                response.body()?.list.let { subscriber.onComplete() }
+                response.body()?.let { subscriber.onNext(it) }
             } else {
                 subscriber.onError(Throwable(response.message()))
             }
