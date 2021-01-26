@@ -1,5 +1,7 @@
 package com.onboarding.wheatherapp.services.response
 
+import com.google.gson.annotations.SerializedName
+
 data class WeatherResponse(
-    val list: ArrayList<DataResponse>
+    @SerializedName("list")val list: ArrayList<DataResponse>
 )
