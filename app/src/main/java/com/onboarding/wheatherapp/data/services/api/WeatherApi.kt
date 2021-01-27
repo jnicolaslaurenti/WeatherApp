@@ -1,6 +1,6 @@
-package com.onboarding.wheatherapp.services.api
+package com.onboarding.wheatherapp.data.services.api
 
-import com.onboarding.wheatherapp.services.response.WeatherResponse
+import com.onboarding.wheatherapp.data.services.response.WeatherResponse
 import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Query

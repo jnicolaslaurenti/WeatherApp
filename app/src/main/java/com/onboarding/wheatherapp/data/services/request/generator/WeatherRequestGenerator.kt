@@ -1,4 +1,4 @@
-package com.onboarding.wheatherapp.services.request.generator
+package com.onboarding.wheatherapp.data.services.request.generator
 
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit

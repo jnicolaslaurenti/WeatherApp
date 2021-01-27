@@ -1,4 +1,4 @@
-package com.onboarding.wheatherapp.services.response
+package com.onboarding.wheatherapp.data.services.response
 
 import com.google.gson.annotations.SerializedName
 

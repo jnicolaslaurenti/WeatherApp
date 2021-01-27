@@ -1,16 +1,16 @@
 package com.onboarding.wheatherapp.mvp
 
-import com.onboarding.wheatherapp.services.response.WeatherResponse
+import com.onboarding.wheatherapp.data.entity.Weather
 import io.reactivex.rxjava3.core.Observable
 
 interface WeatherAppContract {
 
     interface Model {
-        fun getData(city: String): Observable<WeatherResponse>
+        fun getData(city: String): Observable<Weather>
     }
 
     interface View {
-        fun showData(data: WeatherResponse)
+        fun showData(data: Weather)
     }
 
     interface Presenter {
