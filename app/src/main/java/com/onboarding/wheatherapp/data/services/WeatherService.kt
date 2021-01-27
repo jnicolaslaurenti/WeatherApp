@@ -6,7 +6,6 @@ import com.onboarding.wheatherapp.data.services.api.WeatherApi
 import com.onboarding.wheatherapp.data.services.request.generator.WeatherRequestGenerator
 import io.reactivex.rxjava3.core.Observable
 
-
 class WeatherService {
 
     private val api = WeatherRequestGenerator()

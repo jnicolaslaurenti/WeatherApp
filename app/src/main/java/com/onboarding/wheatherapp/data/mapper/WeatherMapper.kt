@@ -20,5 +20,4 @@ class WeatherMapper {
     }
 
     fun transformWeather(weatherResponse: WeatherResponse) = Weather(transformList(weatherResponse.list))
-
 }
