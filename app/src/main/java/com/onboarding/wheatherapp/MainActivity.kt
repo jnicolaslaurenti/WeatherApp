@@ -7,7 +7,7 @@ import com.onboarding.wheatherapp.mvp.WeatherAppContract
 import com.onboarding.wheatherapp.mvp.model.WeatherAppModel
 import com.onboarding.wheatherapp.mvp.presenter.WeatherAppPresenter
 import com.onboarding.wheatherapp.mvp.view.WeatherAppView
-import com.onboarding.wheatherapp.services.WeatherService
+import com.onboarding.wheatherapp.data.services.WeatherService
 
 class MainActivity : AppCompatActivity() {
 
