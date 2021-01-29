@@ -13,6 +13,15 @@ class WeatherAdapter(
     private val days: List<Data>
 ) : RecyclerView.Adapter<WeatherAdapter.WeatherViewHolder>() {
 
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) =
+        WeatherViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.item_weather_day, parent, false))
+
+    override fun onBindViewHolder(holder: WeatherViewHolder, position: Int) {
+        holder.bind(days[position])
+    }
+
+    override fun getItemCount() = days.size
+
     class WeatherViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         private val binding = ItemWeatherDayBinding.bind(itemView)
 
@@ -32,15 +41,6 @@ class WeatherAdapter(
             }
         }
     }
-
-    override fun onBindViewHolder(holder: WeatherViewHolder, position: Int) {
-        holder.bind(days[position])
-    }
-
-    override fun getItemCount() = days.size
-
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) =
-        WeatherViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.item_weather_day, parent, false))
 
     companion object {
         private const val URL = "http://openweathermap.org/img/w/"

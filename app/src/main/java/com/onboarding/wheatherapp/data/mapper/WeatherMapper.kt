@@ -27,7 +27,13 @@ class WeatherMapper {
     fun transformList(list: List<DataResponse>): ArrayList<Data> {
         val listData: ArrayList<Data> = arrayListOf()
         list.forEach {
-            listData.add(Data(transformMain(it.main), transformWeatherDescription(it.weather), appFormat.format(apiFormat.parse(it.date)?:Date())))
+            listData.add(
+                Data(
+                    transformMain(it.main),
+                    transformWeatherDescription(it.weather),
+                    appFormat.format(apiFormat.parse(it.date) ?: Date())
+                )
+            )
         }
         return listData
     }

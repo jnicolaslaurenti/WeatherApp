@@ -15,7 +15,8 @@ class WeatherAppView(activity: Activity, private var binding: ActivityMainBindin
         binding.RecyclerWeather.layoutManager = LinearLayoutManager(context)
         binding.RecyclerWeather.adapter = WeatherAdapter(data)
     }
-    override fun showConnectionProblem(){
+
+    override fun showConnectionProblem() {
         Toast.makeText(context, context?.getString(R.string.error), Toast.LENGTH_SHORT).show()
     }
 }

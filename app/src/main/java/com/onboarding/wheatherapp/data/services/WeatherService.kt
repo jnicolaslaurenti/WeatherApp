@@ -16,9 +16,7 @@ class WeatherService {
             val callResponse = api.createService(WeatherApi::class.java).getWeather(city, APPID, UNITS)
             val response = callResponse.execute()
             if (response.isSuccessful) {
-                response.body()?.list?.
-                filter { it.date.contains(HOUR) }?.
-                let { subscriber.onNext(mapper.transformList(it)) }
+                response.body()?.list?.filter { it.date.contains(HOUR) }?.let { subscriber.onNext(mapper.transformList(it)) }
 
             } else {
                 subscriber.onError(Throwable(response.message()))
