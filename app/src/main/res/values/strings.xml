@@ -1,4 +1,11 @@
 <resources>
     <string name="app_name">WheatherApp</string>
-    <string name="connection_success">Connection success!</string>
+    <string name="error">Houston, we have a problem</string>
+    <string name="temp_now">Temp Now</string>
+    <string name="temp_min">Temp Min</string>
+    <string name="temp_max">Temp Max</string>
+    <string name="date">date</string>
+    <string name="content_description_icon">weather icon</string>
+    <string name="content_description_icon_app">app icon</string>
+    <string name="units">°C</string>
 </resources>

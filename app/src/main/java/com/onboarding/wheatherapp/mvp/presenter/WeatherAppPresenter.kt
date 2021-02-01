@@ -14,7 +14,7 @@ class WeatherAppPresenter(
         model.getData(CITY)
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
-            .subscribe { data -> view.showData(data) }
+            .subscribe({ data -> view.showData(data) }, { view.showConnectionProblem() })
     }
 
     companion object {
