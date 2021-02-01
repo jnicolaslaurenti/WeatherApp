@@ -8,6 +8,7 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.onboarding.wheatherapp.data.entity.Data
 import com.onboarding.wheatherapp.databinding.ItemWeatherDayBinding
+import java.text.DecimalFormat
 
 class WeatherAdapter(
     private val days: List<Data>
@@ -33,10 +34,10 @@ class WeatherAdapter(
                     .load("$URL${item.weather.first().iconWeather}$FORMAT")
                     .into(weatherIcon)
                 item.main.apply {
-                    date.text = item.date.toString()
-                    TempMin.text = tempMin + UNIT
-                    TempMax.text = tempMax + UNIT
-                    textViewTempNow.text = temp + UNIT
+                    date.text = item.date
+                    TempMin.text = "$tempMin${itemView.resources.getString(R.string.units)}"
+                    TempMax.text = "$tempMax${itemView.resources.getString(R.string.units)}"
+                    textViewTempNow.text = "$temp${itemView.resources.getString(R.string.units)}"
                 }
             }
         }
@@ -45,6 +46,5 @@ class WeatherAdapter(
     companion object {
         private const val URL = "http://openweathermap.org/img/w/"
         private const val FORMAT = ".png"
-        private const val UNIT = "°C"
     }
 }

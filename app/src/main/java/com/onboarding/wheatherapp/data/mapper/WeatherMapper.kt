@@ -7,7 +7,9 @@ import com.onboarding.wheatherapp.data.services.response.DataResponse
 import com.onboarding.wheatherapp.data.services.response.MainResponse
 import com.onboarding.wheatherapp.data.services.response.WeatherDescriptionResponse
 import java.text.SimpleDateFormat
-import java.util.*
+import java.util.ArrayList
+import java.util.Date
+import java.util.Locale
 
 class WeatherMapper {
 

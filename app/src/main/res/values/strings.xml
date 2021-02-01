@@ -7,4 +7,5 @@
     <string name="date">date</string>
     <string name="content_description_icon">weather icon</string>
     <string name="content_description_icon_app">app icon</string>
+    <string name="units">°C</string>
 </resources>
