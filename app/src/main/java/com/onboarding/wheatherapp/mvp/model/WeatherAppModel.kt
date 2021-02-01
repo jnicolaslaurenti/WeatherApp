@@ -7,6 +7,6 @@ import io.reactivex.rxjava3.core.Observable
 
 class WeatherAppModel(private val weatherService: WeatherService) : WeatherAppContract.Model {
 
-    override fun getData(city: String): Observable<List<Data>> =
+    override fun getData(city: String): Observable<MutableList<Data>> =
         weatherService.getFiveDays(city)
 }

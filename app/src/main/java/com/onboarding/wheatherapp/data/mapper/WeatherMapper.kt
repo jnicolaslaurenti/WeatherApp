@@ -7,7 +7,6 @@ import com.onboarding.wheatherapp.data.services.response.DataResponse
 import com.onboarding.wheatherapp.data.services.response.MainResponse
 import com.onboarding.wheatherapp.data.services.response.WeatherDescriptionResponse
 import java.text.SimpleDateFormat
-import java.util.ArrayList
 import java.util.Date
 import java.util.Locale
 
@@ -18,16 +17,16 @@ class WeatherMapper {
     private val apiFormat = SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.ENGLISH)
     private val appFormat = SimpleDateFormat("EEEE, MM/dd", Locale.ENGLISH)
 
-    private fun transformWeatherDescription(weather: ArrayList<WeatherDescriptionResponse>): ArrayList<WeatherDescription> {
-        val weatherData: ArrayList<WeatherDescription> = arrayListOf()
+    private fun transformWeatherDescription(weather: MutableList<WeatherDescriptionResponse>): MutableList<WeatherDescription> {
+        val weatherData: MutableList<WeatherDescription> = mutableListOf()
         weather.forEach {
             weatherData.add(WeatherDescription(it.iconWeather))
         }
         return weatherData
     }
 
-    fun transformList(list: List<DataResponse>): ArrayList<Data> {
-        val listData: ArrayList<Data> = arrayListOf()
+    fun transformList(list: List<DataResponse>): MutableList<Data> {
+        val listData: MutableList<Data> = mutableListOf()
         list.forEach {
             listData.add(
                 Data(

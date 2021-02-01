@@ -12,7 +12,7 @@ class WeatherService {
     private val api = WeatherRequestGenerator()
     private val mapper = WeatherMapper()
 
-    fun getFiveDays(city: String): Observable<List<Data>> {
+    fun getFiveDays(city: String): Observable<MutableList<Data>> {
         return Observable.create { subscriber ->
             val callResponse = api.createService(WeatherApi::class.java).getWeather(city, BuildConfig.API_KEY, UNITS)
             val response = callResponse.execute()

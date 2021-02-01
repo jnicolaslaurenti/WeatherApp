@@ -6,11 +6,11 @@ import io.reactivex.rxjava3.core.Observable
 interface WeatherAppContract {
 
     interface Model {
-        fun getData(city: String): Observable<List<Data>>
+        fun getData(city: String): Observable<MutableList<Data>>
     }
 
     interface View {
-        fun showData(data: List<Data>)
+        fun showData(data: MutableList<Data>)
         fun showConnectionProblem()
     }
 

@@ -11,7 +11,7 @@ import com.onboarding.wheatherapp.mvp.WeatherAppContract
 
 class WeatherAppView(activity: Activity, private var binding: ActivityMainBinding) :
     ActivityView(activity), WeatherAppContract.View {
-    override fun showData(data: List<Data>) {
+    override fun showData(data: MutableList<Data>) {
         binding.RecyclerWeather.layoutManager = LinearLayoutManager(context)
         binding.RecyclerWeather.adapter = WeatherAdapter(data)
     }
