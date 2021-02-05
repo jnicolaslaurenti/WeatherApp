@@ -17,7 +17,7 @@ class WeatherService {
             val callResponse = api.createService(WeatherApi::class.java).getWeather(city, BuildConfig.API_KEY, UNITS)
             val response = callResponse.execute()
             if (response.isSuccessful) {
-                response.body()?.list?.filter { it.date.contains(HOUR) }?.let { subscriber.onNext(mapper.transformList(it)) }
+                response.body()?.list?.let { subscriber.onNext(mapper.transformList(it)) }
 
             } else {
                 subscriber.onError(Throwable(response.message()))
@@ -27,6 +27,5 @@ class WeatherService {
 
     companion object {
         private const val UNITS = "metric"
-        private const val HOUR = "12:00:00"
     }
 }
