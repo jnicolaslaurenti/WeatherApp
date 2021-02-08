@@ -15,7 +15,7 @@ class WeatherMapper {
     private fun transformMain(main: MainResponse) = Main(main.temp, main.tempMax, main.tempMin)
 
     private val apiFormat = SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.ENGLISH)
-    private val appFormat = SimpleDateFormat("EEEE, MM/dd", Locale.ENGLISH)
+    private val appFormat = SimpleDateFormat("EEEE, MM/dd HH:mm", Locale.ENGLISH)
 
     private fun transformWeatherDescription(weather: MutableList<WeatherDescriptionResponse>): MutableList<WeatherDescription> {
         val weatherData: MutableList<WeatherDescription> = mutableListOf()

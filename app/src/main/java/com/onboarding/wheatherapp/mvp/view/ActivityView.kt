@@ -10,5 +10,4 @@ open class ActivityView(activity: Activity) {
         get() = activityRef.get()
     val context: Context?
         get() = activity
-
 }

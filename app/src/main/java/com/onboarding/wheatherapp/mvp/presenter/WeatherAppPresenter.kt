@@ -1,6 +1,7 @@
 package com.onboarding.wheatherapp.mvp.presenter
 
-import com.onboarding.wheatherapp.mvp.WeatherAppContract
+import com.onboarding.wheatherapp.data.dialog.OnForecastListener
+import com.onboarding.wheatherapp.mvp.contract.WeatherAppContract
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.schedulers.Schedulers
 
@@ -9,15 +10,22 @@ class WeatherAppPresenter(
     private val view: WeatherAppContract.View
 ) : WeatherAppContract.Presenter {
 
-
-    override fun getFiveDays() {
+    override fun getFiveDays(onForecastListener: OnForecastListener) {
         model.getData(CITY)
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
-            .subscribe({ data -> view.showData(data) }, { view.showConnectionProblem() })
+            .subscribe({ data ->
+                model.saveData(data)
+                view.showData(model.getFilteredForecastByDay(HOUR), onForecastListener)
+            }, { view.showConnectionProblem() })
+    }
+
+    override fun onForecastClicked(date: String) {
+        view.showForecastDayFragment(model.getFilteredForecastByDay(date))
     }
 
     companion object {
         private const val CITY = "Tandil"
+        private const val HOUR = "12:00"
     }
 }
