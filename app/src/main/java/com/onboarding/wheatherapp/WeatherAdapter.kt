@@ -9,8 +9,8 @@ import com.bumptech.glide.request.RequestOptions
 import com.onboarding.wheatherapp.data.dialog.OnForecastListener
 import com.onboarding.wheatherapp.data.entity.Data
 import com.onboarding.wheatherapp.databinding.ItemWeatherDayBinding
-import com.onboarding.wheatherapp.utils.StringUtils.getForecastHour
-import com.onboarding.wheatherapp.utils.StringUtils.getForecastDate
+import com.onboarding.wheatherapp.utils.getForecastDate
+import com.onboarding.wheatherapp.utils.getForecastHour
 
 class WeatherAdapter(
     private val days: List<Data>,
@@ -36,8 +36,8 @@ class WeatherAdapter(
                     .load("$URL${item.weather.first().iconWeather}$FORMAT")
                     .into(weatherIcon)
                 item.main.apply {
-                    if (onForecastListener != null){
-                    date.text = item.date.getForecastDate()
+                    if (onForecastListener != null) {
+                        date.text = item.date.getForecastDate()
                     } else {
                         date.text = item.date.getForecastHour()
                     }

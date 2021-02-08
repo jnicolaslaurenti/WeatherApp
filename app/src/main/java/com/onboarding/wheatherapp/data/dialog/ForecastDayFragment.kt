@@ -24,8 +24,10 @@ class ForecastDayFragment : DialogFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        @Suppress("UNCHECKED_CAST")
-        presenter.showForecastDay(arguments?.getSerializable(FORECAST_EXTEND) as ArrayList<Data>)
+        val forecastForDay: ArrayList<Data>? = arguments?.getSerializable(FORECAST_EXTEND) as? ArrayList<Data>
+        forecastForDay?.let {
+            presenter.showForecastDay(forecastForDay)
+        }
     }
 
     companion object {
