@@ -1,6 +1,7 @@
 package com.onboarding.wheatherapp.mvp.view
 
 import android.app.Activity
+import android.view.View
 import android.widget.Toast
 import androidx.fragment.app.FragmentActivity
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -26,5 +27,13 @@ class WeatherAppView(activity: Activity, private var binding: ActivityMainBindin
     override fun showForecastDayFragment(forecastExtend: List<Data>) {
         ForecastDayFragment.newInstance(ArrayList(forecastExtend))
             .show((context as FragmentActivity).supportFragmentManager, ForecastDayFragment.TAG)
+    }
+
+    override fun showProgressBar() {
+        binding.activityMainProgressBar.visibility = View.VISIBLE
+    }
+
+    override fun hideProgressBar() {
+        binding.activityMainProgressBar.visibility = View.GONE
     }
 }

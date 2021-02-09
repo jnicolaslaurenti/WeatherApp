@@ -11,13 +11,18 @@ class WeatherAppPresenter(
 ) : WeatherAppContract.Presenter {
 
     override fun getFiveDays(onForecastListener: OnForecastListener) {
+        view.showProgressBar()
         model.getData(CITY)
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe({ data ->
                 model.saveData(data)
+                view.hideProgressBar()
                 view.showData(model.getFilteredForecastByDay(HOUR), onForecastListener)
-            }, { view.showConnectionProblem() })
+            }, {
+                view.hideProgressBar()
+                view.showConnectionProblem()
+            })
     }
 
     override fun onForecastClicked(date: String) {
