@@ -15,6 +15,6 @@ class WeatherRequestGenerator {
         builder.client(httpClient).build().create(serviceClass)
 
     companion object {
-        const val BASE_URL_OPENWEATHER = "http://api.openweathermap.org/data/2.5/"
+        const val BASE_URL_OPENWEATHER = "https://api.openweathermap.org/data/2.5/"
     }
 }

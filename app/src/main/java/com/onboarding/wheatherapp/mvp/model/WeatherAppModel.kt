@@ -6,7 +6,9 @@ import com.onboarding.wheatherapp.mvp.contract.WeatherAppContract
 import io.reactivex.rxjava3.core.Observable
 
 class WeatherAppModel(private val weatherService: WeatherService) : WeatherAppContract.Model {
+
     private lateinit var forecastExtend: List<Data>
+
     override fun getData(city: String): Observable<MutableList<Data>> =
         weatherService.getFiveDays(city)
 

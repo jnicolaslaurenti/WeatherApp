@@ -16,6 +16,8 @@ interface WeatherAppContract {
         fun showData(data: List<Data>, onForecastListener: OnForecastListener)
         fun showConnectionProblem()
         fun showForecastDayFragment(forecastExtend: List<Data>)
+        fun showProgressBar()
+        fun hideProgressBar()
     }
 
     interface Presenter {

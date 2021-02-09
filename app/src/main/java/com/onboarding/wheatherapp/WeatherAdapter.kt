@@ -53,7 +53,7 @@ class WeatherAdapter(
     }
 
     companion object {
-        private const val URL = "http://openweathermap.org/img/wn/"
+        private const val URL = "https://openweathermap.org/img/wn/"
         private const val FORMAT = ".png"
     }
 }
