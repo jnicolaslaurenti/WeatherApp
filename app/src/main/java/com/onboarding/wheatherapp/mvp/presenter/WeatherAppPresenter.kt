@@ -30,7 +30,7 @@ class WeatherAppPresenter(
     }
 
     companion object {
-        private const val CITY = "Tandil"
-        private const val HOUR = "12:00"
+        const val CITY = "Tandil"
+        const val HOUR = "12:00"
     }
 }
