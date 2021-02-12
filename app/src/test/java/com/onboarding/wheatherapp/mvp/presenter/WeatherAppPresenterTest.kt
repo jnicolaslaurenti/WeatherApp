@@ -17,6 +17,7 @@ import io.reactivex.rxjava3.android.plugins.RxAndroidPlugins
 import io.reactivex.rxjava3.core.Observable
 import io.reactivex.rxjava3.plugins.RxJavaPlugins
 import org.junit.Assert
+import org.junit.Before
 import org.junit.BeforeClass
 import org.junit.Test
 
@@ -25,11 +26,17 @@ class WeatherAppPresenterTest {
     private var service: WeatherService = mock()
     private var model = WeatherAppModel(service)
     private var view: WeatherAppContract.View = mock()
-    private var presenter: WeatherAppContract.Presenter = WeatherAppPresenter(model, view)
+    private lateinit var presenter: WeatherAppContract.Presenter
     private var listener: OnForecastListener = mock()
-    private var forecastExtendTest = createMutableListTest()
-    private var expectedFilteredList = createListTest()
+    private lateinit var forecastExtendTest: MutableList<Data>
+    private lateinit var expectedFilteredList: List<Data>
 
+    @Before
+    fun setup() {
+        presenter = WeatherAppPresenter(model, view)
+        forecastExtendTest = createMutableListTest()
+        expectedFilteredList = createListTest()
+    }
 
 
     @Test
@@ -70,18 +77,15 @@ class WeatherAppPresenterTest {
         private const val date_2 = "10/02/2021 17:39:00"
         private const val date_3 = "10/02/2021 12:00:00"
 
-        @BeforeClass
-        private fun createListTest():List<Data>{
+        private fun createListTest(): List<Data> {
             val main = Main(TEMP, TEMP_MIN, TEMP_MAX)
             val weatherDescription = WeatherDescription(ICON_WEATHER_STRING)
             val listWeather: MutableList<WeatherDescription> = mutableListOf(weatherDescription)
-            val data_1 = Data(main, listWeather, date_1)
-            val data_2 = Data(main, listWeather, date_2)
             val data_3 = Data(main, listWeather, date_3)
             return listOf<Data>(data_3)
         }
 
-        private fun createMutableListTest():MutableList<Data> {
+        private fun createMutableListTest(): MutableList<Data> {
             val main = Main(TEMP, TEMP_MIN, TEMP_MAX)
             val weatherDescription = WeatherDescription(ICON_WEATHER_STRING)
             val listWeather: MutableList<WeatherDescription> = mutableListOf(weatherDescription)
