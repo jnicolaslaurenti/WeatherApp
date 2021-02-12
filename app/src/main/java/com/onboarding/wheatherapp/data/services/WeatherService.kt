@@ -18,7 +18,6 @@ class WeatherService {
             val response = callResponse.execute()
             if (response.isSuccessful) {
                 response.body()?.list?.let { subscriber.onNext(mapper.transformList(it)) }
-
             } else {
                 subscriber.onError(Throwable(response.message()))
             }
